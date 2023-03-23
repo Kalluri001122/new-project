@@ -3,8 +3,8 @@ pipeline{
    
    environment {
   tomcat = "3.133.88.4"
-  tomcat_user = " ec2-user"
-                  }
+  tomcat_user = "ec2-user"
+  }
     
     stages{
         stage('git checkout'){
