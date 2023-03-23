@@ -26,6 +26,11 @@ pipeline {
             }
         }
         stage('tomcat_deploy'){
+         when {
+        expression {
+           params.name == "develop"
+           }
+       }
             steps{
               sshagent(['tomcat9']) {
     // some block
