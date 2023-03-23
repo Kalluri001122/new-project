@@ -11,11 +11,7 @@ pipeline {
 
     stages {
         stage('git checkout'){
-        when {
-        expression {
-           params.name == "develop"
-           }
-       }
+      
             steps{
                 git credentialsId: 'git', url: 'https://github.com/Kalluri001122/new-project.git'
             }
