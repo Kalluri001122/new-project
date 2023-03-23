@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-       ajay = 'ec2-user'
-       ec2-user-ip = '3.133.88.4'
+       ajay = "ec2-user"
+       ec2-user-ip = "3.133.88.4"
     }
 
     stages {
