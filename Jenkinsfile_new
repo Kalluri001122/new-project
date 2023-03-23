@@ -20,9 +20,9 @@ pipeline {
             steps{
               sshagent(['tomcat9']) {
     // some block
-      sh "scp -o StrictHostKeyChecking=no target/*.war $ajay@$ec2-user-ip:/opt/tomcat9/webapps/"
-      sh 'ssh $ajay@$ec2-user-ip /opt/tomcat9/bin/shutdown.sh'
-      sh 'ssh $ajay@$ec2-user-ip /opt/tomcat9/bin/startup.sh'
+      sh "scp -o StrictHostKeyChecking=no target/*.war $ajay@$ec2_user_ip:/opt/tomcat9/webapps/"
+      sh 'ssh $ajay@$ec2_user_ip /opt/tomcat9/bin/shutdown.sh'
+      sh 'ssh $ajay@$ec2_user_ip /opt/tomcat9/bin/startup.sh'
                }
             }
         }
