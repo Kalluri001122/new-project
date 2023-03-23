@@ -36,14 +36,13 @@ pipeline {
             }
         }
         post {
-  success {
-   echo "print build is succeded"
-  }
-  failure {
-    echo " print the build is failed"
-  }
-}
-
-    }
+           success {
+                echo "print build is succeded"
+                  }
+           failure {
+               echo "print the build is failed"
+                 }
+            }
+      }
 }
     
