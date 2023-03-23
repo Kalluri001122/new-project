@@ -19,7 +19,7 @@ pipeline {
         }
         stage('tomcat') {
             when {
-         branch 'Ajay'
+         branch 'Aj'
          }
             steps {
                 echo 'deploy World'
