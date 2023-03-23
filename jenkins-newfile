@@ -1,0 +1,33 @@
+pipeline{
+    agent any 
+   
+   environment {
+  tomcat = "3.133.88.4"
+  tomcat_user = " ec2-user"
+                  }
+    
+    stages{
+        stage('git checkout'){
+        steps{
+            git credentialsId: 'git', url: 'https://github.com/Kalluri001122/new-project.git'
+            }
+        }
+        stage('maven clean package'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('tomcat9'){
+        steps{
+            sshagent(['tomcat-server']) {
+                  // some block
+                  sh 'scp -o StrictHostKeyChecking=no target/*.war $tomcat_user@$tomcat:/opt/tomcat9/webapps'
+                  sh 'ssh $tomcat_user@$tomcat /opt/tomcat9/bin/shutdown.sh'
+                  sh 'ssh $tomcat_user@$tomcat /opt/tomcat9/bin/startup.sh'
+                }
+    
+           }
+        }
+        
+    }
+    
