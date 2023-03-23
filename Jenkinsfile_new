@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+     label 'Linux1'
+      }
     environment {
        ajay = "ec2-user"
        ec2_user_ip = "3.133.88.4"
