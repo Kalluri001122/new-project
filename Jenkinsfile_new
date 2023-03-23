@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    Environrment{
+       ajay=ec2-user
+       ec2-user-ip=3.133.88.4
+    }
 
     stages {
         stage('git checkout'){
@@ -16,9 +20,9 @@ pipeline {
             steps{
               sshagent(['tomcat9']) {
     // some block
-      sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@3.133.88.4:/opt/tomcat9/webapps/"
-      sh 'ssh ec2-user@3.133.88.4 /opt/tomcat9/bin/shutdown.sh'
-      sh 'ssh ec2-user@3.133.88.4 /opt/tomcat9/bin/startup.sh'
+      sh "scp -o StrictHostKeyChecking=no target/*.war $ajay@$ec2-user-ip:/opt/tomcat9/webapps/"
+      sh 'ssh $ajay@$ec2-user-ip /opt/tomcat9/bin/shutdown.sh'
+      sh 'ssh $ajay@$ec2-user-ip /opt/tomcat9/bin/startup.sh'
                }
             }
         }
