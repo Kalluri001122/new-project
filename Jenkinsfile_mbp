@@ -2,21 +2,33 @@ pipeline {
    agent any
      stages {
         stage('Hello') {
+        when {
+         branch 'devlop'
+         }
             steps {
                 echo 'git World'
             }
         }
         stage('maven') {
+            when {
+         branch 'devloper'
+         }
             steps {
                 echo 'build World'
             }
         }
         stage('tomcat') {
+            when {
+         branch 'Ajay'
+         }
             steps {
                 echo 'deploy World'
             }
         }
         stage('jenkins') {
+            when {
+         branch 'bhargav'
+         }
             steps {
                 echo 'TATA World'
             }
