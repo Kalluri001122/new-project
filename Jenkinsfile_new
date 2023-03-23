@@ -4,6 +4,10 @@ pipeline {
        ajay = "ec2-user"
        ec2_user_ip = "3.133.88.4"
     }
+    
+  parameters {
+  string defaultValue: 'master', description: 'choose the branch to deploy', name: 'Branch_name'
+}
 
     stages {
         stage('git checkout'){
