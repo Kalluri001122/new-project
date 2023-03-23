@@ -1,0 +1,37 @@
+pipeline {
+   agent any
+     stages {
+        stage('Hello') {
+        when {
+         branch 'master'
+         }
+            steps {
+                echo 'git World'
+            }
+        }
+        stage('maven') {
+            when {
+         branch 'master'
+         }
+            steps {
+                echo 'build World'
+            }
+        }
+        stage('tomcat') {
+            when {
+         branch 'Aj'
+         }
+            steps {
+                echo 'deploy World'
+            }
+        }
+        stage('jenkins') {
+            when {
+         branch 'bhargav'
+         }
+            steps {
+                echo 'TATA World'
+            }
+        }
+    }
+}
