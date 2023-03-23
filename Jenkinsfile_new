@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    Environrment{
+    environment{
        ajay='ec2-user'
        ec2-user-ip='3.133.88.4'
     }
