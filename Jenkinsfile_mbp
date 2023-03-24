@@ -3,7 +3,7 @@ pipeline {
      stages {
         stage('Hello') {
         when {
-         branch 'master'
+         branch 'Aj'
          }
             steps {
                 echo 'git World'
@@ -11,7 +11,7 @@ pipeline {
         }
         stage('maven') {
             when {
-         branch 'master'
+         branch 'aj'
          }
             steps {
                 echo 'build World'
@@ -27,7 +27,7 @@ pipeline {
         }
         stage('jenkins') {
             when {
-         branch 'bhargav'
+         branch 'aj'
          }
             steps {
                 echo 'TAT World'
