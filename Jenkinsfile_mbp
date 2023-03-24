@@ -33,5 +33,13 @@ pipeline {
                 echo 'TA World'
             }
         }
+                stage('nexus') {
+            when {
+         branch 'bhargav'
+         }
+            steps {
+                echo 'World'
+            }
+        }
     }
 }
