@@ -22,7 +22,7 @@ pipeline {
          branch 'Aj'
          }
             steps {
-                echo 'deploy World'
+                echo 'deploy '
             }
         }
         stage('jenkins') {
