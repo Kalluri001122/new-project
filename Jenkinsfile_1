@@ -3,20 +3,38 @@ pipeline {
      stages {
         stage('Hello') {
         when {
-         branch 'source code '
+         branch 'master'
          }
             steps {
-                echo 'git checlk out '
+                echo 'git '
             }
         }
-         stage('Hello') {
-        when {
-         branch 'source code '
+        stage('maven') {
+            when {
+         branch 'master'
          }
             steps {
-                echo 'git checlk out 
-                }
-       }         
+                echo 'build World'
+            }
+        }
+        stage('tomcat') {
+            when {
+         branch 'Aj'
+         }
+            steps {
+                echo 'deploy '
+            }
+        }
+        stage('jenkins') {
+            when {
+         branch 'bhargav'
+         }
+            steps {
+                echo 'TAT World'
+            }
+        }
+    }
+}         
                 
                 
                 
