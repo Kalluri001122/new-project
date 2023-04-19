@@ -1,11 +1,25 @@
 pipeline {
-  agent any
-  stages {
-    stage (git chcekout) {
-     branch 'ajay'
-     }
-     steps {
-     echo "git "
-     }
-     }
-     }
+   agent any
+     stages {
+        stage('Hello') {
+        when {
+         branch 'source code '
+         }
+            steps {
+                echo 'git checlk out '
+            }
+        }
+         stage('Hello') {
+        when {
+         branch 'source code '
+         }
+            steps {
+                echo 'git checlk out 
+                }
+       }         
+                
+                
+                
+                
+       
+            
