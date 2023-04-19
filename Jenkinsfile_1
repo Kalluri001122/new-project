@@ -1,0 +1,11 @@
+pipeline {
+  agent any
+  stages {
+    stage (git chcekout) {
+     branch 'ajay'
+     }
+     steps {
+     echo "git "
+     }
+     }
+     }
