@@ -1,0 +1,30 @@
+pipeline {
+   agent any
+     stages {
+        stage('git Hello') {
+        when {
+         branch 'master'
+         }
+            steps {
+                echo 'git '
+            }
+        }
+        stage('maven Hello') {
+        when {
+         branch 'master'
+         }
+            steps {
+                echo 'maven '
+            }
+        }
+        stage('deploy Hello') {
+        when {
+         branch 'aj'
+         }
+            steps {
+                echo 'git '
+            }
+        }
+        }
+        }
+        

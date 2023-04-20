@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    environment {
+       ajay = "ec2-user"
+       ec2_user_ip = "3.133.88.4"
+    }
+    
+  parameters {
+  string defaultValue: 'master', description: 'choose the branch to deploy', name: 'Branch_name'
+}
+
+    stages {
+        stage('git checkout'){
+       when {
+        expression {
+           params.name == "develop"
+           }
+       }
+            steps{
+                git credentialsId: 'git', url: 'https://github.com/Kalluri001122/new-project.git'
+            }
+        }
+        stage('maven'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('tomcat_deploy'){
+        
+            steps{
+              sshagent(['tomcat9']) {
+    // some block
+      sh "scp -o StrictHostKeyChecking=no target/*.war $ajay@$ec2_user_ip:/opt/tomcat9/webapps/"
+      sh 'ssh $ajay@$ec2_user_ip /opt/tomcat9/bin/shutdown.sh'
+      sh 'ssh $ajay@$ec2_user_ip /opt/tomcat9/bin/startup.sh'
+               }
+            }
+        }
+      
+     }
+       post {
+           success {
+                echo "print build is succeded"
+                  }
+           failure {
+               echo "print the build is failed"
+                 }
+       }
+}
+    
