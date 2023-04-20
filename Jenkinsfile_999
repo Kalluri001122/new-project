@@ -14,7 +14,7 @@ pipeline {
          branch 'master'
          }
             steps {
-                echo 'maven '
+                echo 'maven build'
             }
         }
         stage('deploy Hello') {
