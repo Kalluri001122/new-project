@@ -22,7 +22,7 @@ pipeline {
          branch 'aj'
          }
             steps {
-                echo 'git '
+                echo 'deploying '
             }
         }
         }
