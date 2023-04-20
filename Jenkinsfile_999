@@ -1,7 +1,7 @@
 pipeline {
    agent any
      stages {
-        stage('git Hello') {
+        stage('git check out Hello') {
         when {
          branch 'master'
          }
